@@ -1,0 +1,12 @@
+<div class="mt-5" *ngFor="let post of posts">
+  <div *ngIf="!post.active">
+    <div class="card">
+      <h3 class="text-center bg-secondary rounded-top text-light">
+        {{ post.title }}
+      </h3>
+      <div class="card-body">
+        <p class="card-text">{{ post.body }}</p>
+      </div>
+    </div>
+  </div>
+</div>
