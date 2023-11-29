@@ -15,5 +15,7 @@ export class ActivePostsComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.postsrv.post();
+  }
 }
