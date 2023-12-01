@@ -10,10 +10,16 @@ import { PostsService } from 'src/app/services/posts.service';
 export class InactivePostsComponent implements OnInit {
   posts: PostStructure[] = [];
   constructor(private postsrv: PostsService) {
-    this.postsrv.getPosts().then((posts) => {
+    /*this.postsrv.getPosts().then((posts) => {
       this.posts = posts;
-    });
+    });*/
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.posts = this.postsrv.getPosts();
+  }
+
+  alterPosts(i: number): void {
+    this.postsrv.alterActive(i);
+  }
 }

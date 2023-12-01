@@ -1,4 +1,49 @@
 import { Injectable } from '@angular/core';
+import { PostStructure } from '../interfaces/post-structure';
+import { startWith } from 'rxjs';
+
+let posts: PostStructure[] = [
+  {
+    id: 1,
+    type: 'news',
+    body: 'Sit minim deserunt enim enim nisi. Eiusmod incididunt dolore et ea anim. Non exercitation id voluptate et velit quis anim officia fugiat esse laborum nisi fugiat non.',
+    title:
+      'Dolor velit sint tempor culpa cupidatat ipsum do ad tempor eiusmod.',
+    active: true,
+  },
+  {
+    id: 2,
+    type: 'politics',
+    body: 'Sit minim deserunt enim enim nisi. Eiusmod incididunt dolore et ea anim. Non exercitation id voluptate et velit quis anim officia fugiat esse laborum nisi fugiat non.',
+    title:
+      'Dolor velit sint tempor culpa cupidatat ipsum do ad tempor eiusmod.',
+    active: true,
+  },
+  {
+    id: 3,
+    type: 'politics',
+    body: 'Sit minim deserunt enim enim nisi. Eiusmod incididunt dolore et ea anim. Non exercitation id voluptate et velit quis anim officia fugiat esse laborum nisi fugiat non.',
+    title:
+      'Dolor velit sint tempor culpa cupidatat ipsum do ad tempor eiusmod.',
+    active: true,
+  },
+  {
+    id: 4,
+    type: 'education',
+    body: 'Sit minim deserunt enim enim nisi. Eiusmod incididunt dolore et ea anim. Non exercitation id voluptate et velit quis anim officia fugiat esse laborum nisi fugiat non.',
+    title:
+      'Dolor velit sint tempor culpa cupidatat ipsum do ad tempor eiusmod.',
+    active: false,
+  },
+  {
+    id: 5,
+    type: 'news',
+    body: 'Sit minim deserunt enim enim nisi. Eiusmod incididunt dolore et ea anim. Non exercitation id voluptate et velit quis anim officia fugiat esse laborum nisi fugiat non.',
+    title:
+      'Dolor velit sint tempor culpa cupidatat ipsum do ad tempor eiusmod.',
+    active: false,
+  },
+];
 
 @Injectable({
   providedIn: 'root',
@@ -6,7 +51,18 @@ import { Injectable } from '@angular/core';
 export class PostsService {
   constructor() {}
 
-  async getPosts() {
-    return await (await fetch('../../assets/db.json')).json();
+  /*async getPosts() {
+    return await (await fetch('../../assets/db.json')).json();*/
+
+  getPosts() {
+    return posts;
+  }
+
+  alterActive(i: number): void {
+    posts.forEach((post) => {
+      if (post.id == i) {
+        post.active = !post.active;
+      }
+    });
   }
 }

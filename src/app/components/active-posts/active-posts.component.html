@@ -6,7 +6,12 @@
       </h3>
       <div class="card-body">
         <p class="card-text">{{ post.body }}</p>
-        <button class="btn btn-danger">Disable</button>
+        <button
+          class="btn btn-danger d-block mx-auto"
+          (click)="alterPosts(post.id)"
+        >
+          Disable
+        </button>
       </div>
     </div>
   </div>
