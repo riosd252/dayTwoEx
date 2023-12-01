@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { PostStructure } from '../interfaces/post-structure';
-import { startWith } from 'rxjs';
 
 let posts: PostStructure[] = [
   {
     id: 1,
+    author: 'John D. Benson',
     type: 'news',
     body: 'Sit minim deserunt enim enim nisi. Eiusmod incididunt dolore et ea anim. Non exercitation id voluptate et velit quis anim officia fugiat esse laborum nisi fugiat non.',
     title:
@@ -13,6 +13,7 @@ let posts: PostStructure[] = [
   },
   {
     id: 2,
+    author: 'John D. Benson',
     type: 'politics',
     body: 'Sit minim deserunt enim enim nisi. Eiusmod incididunt dolore et ea anim. Non exercitation id voluptate et velit quis anim officia fugiat esse laborum nisi fugiat non.',
     title:
@@ -21,6 +22,7 @@ let posts: PostStructure[] = [
   },
   {
     id: 3,
+    author: 'John D. Benson',
     type: 'politics',
     body: 'Sit minim deserunt enim enim nisi. Eiusmod incididunt dolore et ea anim. Non exercitation id voluptate et velit quis anim officia fugiat esse laborum nisi fugiat non.',
     title:
@@ -29,6 +31,7 @@ let posts: PostStructure[] = [
   },
   {
     id: 4,
+    author: 'John D. Benson',
     type: 'education',
     body: 'Sit minim deserunt enim enim nisi. Eiusmod incididunt dolore et ea anim. Non exercitation id voluptate et velit quis anim officia fugiat esse laborum nisi fugiat non.',
     title:
@@ -37,6 +40,7 @@ let posts: PostStructure[] = [
   },
   {
     id: 5,
+    author: 'John D. Benson',
     type: 'news',
     body: 'Sit minim deserunt enim enim nisi. Eiusmod incididunt dolore et ea anim. Non exercitation id voluptate et velit quis anim officia fugiat esse laborum nisi fugiat non.',
     title:
@@ -56,6 +60,13 @@ export class PostsService {
 
   getPosts() {
     return posts;
+  }
+
+  getPost(id: number) {
+    let singlePost: PostStructure | undefined = posts.find(
+      (post) => post.id == id
+    );
+    return singlePost;
   }
 
   alterActive(i: number): void {
